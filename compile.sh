@@ -50,8 +50,8 @@ if [ ${compile_ocean_only} == 1 ]; then
  echo "compiling MOM6 ocean only ..."
  make NETCDF=4 REPRO=1 MOM6 -j
 
- echo "generating libocean.a"
- ar rv libocean.a *o
+# echo "generating libocean.a"
+# ar rv libocean.a *o
  
  echo "compiling MOM6 ocean only done"
 
@@ -74,6 +74,9 @@ if [ ${compile_MOM6_SIS2} == 1 ]; then
 
  echo "compiling MOM6 ocean only ..."
  make NETCDF=4 REPRO=1 MOM6 -j
+
+ echo "generating libocean.a"
+ ar rv libocean.a *o
 
  echo "compiling MOM6-SIS2 done"
 
