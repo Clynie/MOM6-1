@@ -78,10 +78,13 @@ if [ ${compile_MOM6_SIS2} == 1 ]; then
  echo "generating libocean.a"
  ar rv libocean.a *o
 
+
  echo "compiling MOM6-SIS2 done"
 
 fi
 
-
-
-
+# Install library and module files for NEMSAppbuilder
+cd $BASEDIR
+mkdir -p exec/${MACHINE_ID}/
+ln -s ${BASEDIR}/build/intel/shared/repro/ exec/${MACHINE_ID}/lib_FMS
+ln -s ${BASEDIR}/build/intel/ice_ocean_SIS2/repro/ exec/${MACHINE_ID}/lib_ocean
