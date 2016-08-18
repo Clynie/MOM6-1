@@ -67,7 +67,6 @@
 ../../../../src/FMS/mosaic/mosaic_util.h
 ../../../../src/FMS/mosaic/read_mosaic.c
 ../../../../src/FMS/mosaic/read_mosaic.h
-../../../../src/FMS/mpp/affinity.c
 ../../../../src/FMS/mpp/include/group_update_pack.inc
 ../../../../src/FMS/mpp/include/group_update_unpack.inc
 ../../../../src/FMS/mpp/include/mpp_alltoall_mpi.h
@@ -147,6 +146,7 @@
 ../../../../src/FMS/mpp/include/mpp_write_compressed.h
 ../../../../src/FMS/mpp/include/mpp_write_unlimited_axis.h
 ../../../../src/FMS/mpp/include/system_clock.h
+../../../../src/FMS/mpp/affinity.c
 ../../../../src/FMS/mpp/mpp.F90
 ../../../../src/FMS/mpp/mpp_data.F90
 ../../../../src/FMS/mpp/mpp_domains.F90
