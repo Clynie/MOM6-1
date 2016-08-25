@@ -88,8 +88,8 @@ else
   LIBS += -lnetcdf
 endif
 
-FFLAGS += -I/gpfs/tp1/usrx/local/NetCDF/4.2/serial/include
-CFLAGS += -I/gpfs/tp1/usrx/local/NetCDF/4.2/serial/include
+FFLAGS += -I/usrx/local/NetCDF/4.2/serial/include
+CFLAGS += -I/usrx/local/NetCDF/4.2/serial/include
 
 LIBS +=
 LIBS += -lmkl_blas95_lp64 -lmkl_lapack95_lp64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential
