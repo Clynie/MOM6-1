@@ -83,8 +83,8 @@ endif
  echo "compiling MOM6 ocean only ..."
  make NETCDF=4 REPRO=1 MOM6 -j
 
- echo "generating libocean.a"
- ar rv libocean.a *o
+ echo "generating lib_ocean.a"
+ ar rv lib_ocean.a *o
 
  echo "compiling MOM6-SIS2 done"
 

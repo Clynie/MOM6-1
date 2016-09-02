@@ -864,6 +864,10 @@ subroutine ocean_model_data2D_get(OS,Ocean, name, array2D,isc,jsc)
      array2D(isc:,jsc:) = Ocean%t_surf(isc:,jsc:)-CELSIUS_KELVIN_OFFSET
   case('btfHeat')
      array2D(isc:,jsc:) = 0
+  case('tlat')
+     array2D(isc:,jsc:) = OS%grid%geoLatT(g_isc:g_iec,g_jsc:g_jec)
+  case('tlon')
+     array2D(isc:,jsc:) = OS%grid%geoLonT(g_isc:g_iec,g_jsc:g_jec)
   case default
      call MOM_error(FATAL,'get_ocean_grid_data2D: unknown argument name='//name)
   end select
