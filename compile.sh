@@ -1,4 +1,4 @@
-#!/bin/csh
+#!/bin/csh -f
 
 set argv=(`getopt -u -o h -l platform:  --  $*`)
 while ("$argv[1]" != "--")
@@ -35,6 +35,7 @@ if ( ${compile_FMS} == 1 ) then
 
  echo "compiling FMS library..."
  make NETCDF=4 REPRO=1 libfms.a -j
+ cp libfms.a lib_FMS.a
 
  echo "compiling FMS library done"
 
@@ -84,6 +85,10 @@ endif
  make NETCDF=4 REPRO=1 MOM6 -j
 
  echo "generating lib_ocean.a"
+ # Avoid cyclic link in libdir, this prevents .a from being created properly.
+ if ( -f repro ) then
+  rm repro
+ endif 
  ar rv lib_ocean.a *o
 
  echo "compiling MOM6-SIS2 done"
@@ -95,7 +100,3 @@ endif
  ln -s ${BASEDIR}/build/intel/ice_ocean_SIS2/repro/ exec/${MACHINE_ID}/lib_ocean
 
 endif 
-
-
-
-
