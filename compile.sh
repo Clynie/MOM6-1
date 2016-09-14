@@ -85,10 +85,7 @@ endif
  make NETCDF=4 REPRO=1 MOM6 -j
 
  echo "generating lib_ocean.a"
- # Avoid cyclic link in libdir, this prevents .a from being created properly.
- if ( -f repro ) then
-  rm repro
- endif 
+ rm repro
  ar rv lib_ocean.a *o
 
  echo "compiling MOM6-SIS2 done"
@@ -96,7 +93,9 @@ endif
  # Install library and module files for NEMSAppbuilder
  cd $BASEDIR
  mkdir -p exec/${MACHINE_ID}/
- ln -s ${BASEDIR}/build/intel/shared/repro/ exec/${MACHINE_ID}/lib_FMS
- ln -s ${BASEDIR}/build/intel/ice_ocean_SIS2/repro/ exec/${MACHINE_ID}/lib_ocean
+ # link to the library and module files
+ rm -rf exec/${MACHINE_ID}/lib_FMS exec/${MACHINE_ID}/lib_ocean
+ ln -s ${BASEDIR}/build/intel/shared/repro exec/${MACHINE_ID}/lib_FMS
+ ln -s ${BASEDIR}/build/intel/ice_ocean_SIS2/repro exec/${MACHINE_ID}/lib_ocean
 
 endif 
